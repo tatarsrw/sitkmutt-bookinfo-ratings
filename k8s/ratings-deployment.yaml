@@ -19,20 +19,6 @@ spec:
       - name: bookinfo-dev-ratings
         image: ghcr.io/tatarsrw/bookinfo-ratings:dev
         imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: web-port
-          protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-            scheme: HTTP
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-            scheme: HTTP
         env:
         - name: SERVICE_VERSION
           value: v1
