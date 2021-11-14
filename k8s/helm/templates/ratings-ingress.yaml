@@ -7,17 +7,17 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
   {{- end }}
-  name: {{.Release.Name}}
-  namespace: {{ .Values.ratings.namespace}}
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.ratings.namespace }}
 spec:
   rules:
-  - host: {{ .Values.ingress.host}}
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: {{ .Values.ingress.path}}
+      - path: {{ .Values.ingress.path }}
         pathType: Prefix
         backend:
           service:
             name: {{ .Release.Name }}
             port:
-              number: {{ .Values.ratings.port}}
+              number: {{ .Values.ratings.port }}

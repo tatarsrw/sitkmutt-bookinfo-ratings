@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
-  namespace: {{ .Values.ratings.namespace}}
+  namespace: {{ .Values.ratings.namespace }}
   labels:
     app: {{ .Release.Name }}
 spec:
-  replicas: {{ .Values.ratings.replicas}}
+  replicas: {{ .Values.ratings.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}
-        image: {{ .Values.ratings.image}}:{{ .Values.ratings.tag}}
+        image: {{ .Values.ratings.image }}:{{ .Values.ratings.tag }}
         imagePullPolicy: Always
         {{- if or (.Values.extraEnv) (.Values.extraEnvSecret) }}
         env:
@@ -42,6 +42,5 @@ spec:
         {{- end }}
 
         {{- end }}
-
       imagePullSecrets:
       - name: {{ .Values.ratings.imagePullSecrets }}

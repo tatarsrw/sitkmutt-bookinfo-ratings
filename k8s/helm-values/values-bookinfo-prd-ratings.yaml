@@ -6,7 +6,7 @@ ratings:
   image: ghcr.io/tatarsrw/bookinfo-ratings
   tag: prd
 ingress:
-  host: sitkmutt.bookinfo.prd.opsta.net
+  host: sitkmutt.bookinfo.opsta.net
   path: "/student33/ratings(/|$)(.*)"
   serviceType: ClusterIP
   annotations:
