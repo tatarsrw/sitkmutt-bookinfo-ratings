@@ -43,4 +43,10 @@ jobs:
               "extraEnv": {
                 "COMMIT_SHA": "${{ github.sha }}"
               }
-            }         
+            }
+acceptancetest:
+    needs: deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - name: curl & grep
+        run: curl http://sitkmutt.bookinfo.dev.opsta.net/student33/ratings/health | grep "Ratings is good"
