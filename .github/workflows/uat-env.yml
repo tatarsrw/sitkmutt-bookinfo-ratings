@@ -48,5 +48,5 @@ jobs:
     needs: deploy
     runs-on: ubuntu-20.04
     steps:
-      - name: curl & grep
+      - name: Run acceptance test
         run: curl http://sitkmutt.bookinfo.uat.opsta.net/student33/ratings/health | grep "Ratings is good"
